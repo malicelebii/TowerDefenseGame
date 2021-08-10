@@ -6,23 +6,27 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager _instance;
     private GameObject _turretToBuild;
-    [SerializeField] GameObject _turretPrefab;
+    public GameObject _standardTurretPrefab;
+    public GameObject _anotherTurretPrefab;
 
     void Awake()
     {
-        if(_instance !=null){
+        if (_instance != null)
+        {
             Debug.LogError("More than one BuildManager");
         }
         _instance = this;
-    }
-
-    void Start(){
-        _turretToBuild=_turretPrefab;
     }
 
     public GameObject GetTurretToBuild()
     {
         return _turretToBuild;
     }
+
+    public void SetTurretToBuild(GameObject turret)
+    {
+        _turretToBuild=turret;
+    }
+
 
 }
